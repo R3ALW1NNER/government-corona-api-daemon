@@ -1,4 +1,4 @@
-package com.realwinner.governmentcoronaapidaemon.domain.scheduler;
+package com.realwinner.governmentcoronaapidaemon.scheduler;
 
 import com.realwinner.governmentcoronaapidaemon.domain.service.CoronaTelegramAlarm;
 import lombok.extern.slf4j.Slf4j;
