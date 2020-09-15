@@ -1,6 +1,6 @@
 package com.realwinner.governmentcoronaapidaemon.domain.service;
 
-import com.realwinner.governmentcoronaapidaemon.config.CoronaApiHttpCall;
+import com.realwinner.governmentcoronaapidaemon.config.GovernmentCoronaApiHttpClient;
 import com.realwinner.governmentcoronaapidaemon.domain.model.GovernmentCoronaModel;
 import com.realwinner.governmentcoronaapidaemon.domain.repository.GovernmentCoronaRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -14,7 +14,7 @@ public class GovernMentCoronaService {
     private GovernmentCoronaRepository governmentCoronaRepository;
 
     @Autowired
-    private CoronaApiHttpCall coronaApiHttpCall;
+    private GovernmentCoronaApiHttpClient coronaApiHttpCall;
 
     public void coronaApiToDbSave() {
         GovernmentCoronaModel governmentCoronaModel = coronaApiHttpCall.getCoronaData();

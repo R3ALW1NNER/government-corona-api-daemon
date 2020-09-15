@@ -27,7 +27,7 @@ import java.time.LocalDateTime;
 
 @Slf4j
 @Component
-public class CoronaApiHttpCall {
+public class GovernmentCoronaApiHttpClient {
 
     @Value("${government.api-url}")
     private String governmentApiUrl;

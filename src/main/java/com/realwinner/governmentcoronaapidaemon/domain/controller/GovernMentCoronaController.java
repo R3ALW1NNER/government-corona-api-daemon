@@ -1,6 +1,6 @@
 package com.realwinner.governmentcoronaapidaemon.domain.controller;
 
-import com.realwinner.governmentcoronaapidaemon.config.CoronaApiHttpCall;
+import com.realwinner.governmentcoronaapidaemon.config.GovernmentCoronaApiHttpClient;
 import com.realwinner.governmentcoronaapidaemon.domain.model.GovernmentCoronaModel;
 import com.realwinner.governmentcoronaapidaemon.domain.repository.GovernmentCoronaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ public class GovernMentCoronaController {
     private GovernmentCoronaRepository governmentCoronaRepository;
 
     @Autowired
-    private CoronaApiHttpCall coronaApiHttpCall;
+    private GovernmentCoronaApiHttpClient coronaApiHttpCall;
 
     @GetMapping("/apiSave")
     public String apiToDbSave() {
