@@ -32,4 +32,17 @@ public class DateUtil {
 
         return yesterdayDateTime.format(formatterYYYYMMDD);
     }
+
+    public String getTodayDateStringHangul() {
+        LocalDateTime todayDateTime = LocalDateTime.now();
+
+        return todayDateTime.format(DateTimeFormatter.ofPattern("yyyy년 MM월 dd일 00시"));
+    }
+
+    public String getYesterdayDateStringHangul() {
+        LocalDateTime todayDateTime = LocalDateTime.now();
+        LocalDateTime yesterdayDateTime = todayDateTime.minusDays(1);
+
+        return yesterdayDateTime.format(DateTimeFormatter.ofPattern("yyyy년 MM월 dd일 00시"));
+    }
 }
