@@ -19,16 +19,26 @@ public class GovernmentCOVID19Service {
     private GovernmentCOVID19ApiHttpClient coronaApiHttpCall;
 
     public void coronaApiToDbSave() {
+        boolean flag = true;
         ArrayList<GovernmentCOVID19Model> list = coronaApiHttpCall.getCOVID19Data();
 
-        if (list.size() == 0) {
-            log.info("Data is Null");
-        } else {
-            for (GovernmentCOVID19Model model : list) {
-                log.info(model.toString());
-                governmentCOVID19Repository.save(model);
+        while(flag) {
+            if (list == null) {
+                log.info("Data is Null sleep 15 sec");
+                try {
+                    Thread.sleep(1000 * 15);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+            } else {
+                for (GovernmentCOVID19Model model : list) {
+                    log.info(model.toString());
+                    governmentCOVID19Repository.save(model);
+                }
+                log.info("DB save success");
+                flag = false;
             }
-            log.info("DB save success");
         }
     }
 }
