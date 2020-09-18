@@ -38,13 +38,13 @@ public class COVID19TelegramAlarm {
 
 
         ArrayList<GovernmentCOVID19Model> todayList = repository.findByStdDay(todayDateHangul);
-        ArrayList<GovernmentCOVID19Model> yesterdayList = repository.findByStdDay(todayDateHangul);
+        ArrayList<GovernmentCOVID19Model> yesterdayList = repository.findByStdDay(yesterdayDateHangul);
 
         int todayIncDec = todayList.get(todayList.size() - 1).getIncDec();
         int todayDeathCnt = todayList.get(todayList.size() - 1).getDeathCnt() - yesterdayList.get(todayList.size() - 1).getDeathCnt();
 
-        int todayOutsideInDec = todayList.get(0).getIncDec();
-        int todayInsideIncDec = todayIncDec - todayOutsideInDec;
+        int todayOutsideInDec = todayList.get(0).getOverFlowCnt();
+        int todayInsideIncDec = todayList.get(0).getLocalOccCnt();
 
         int todayTotalDeathCnt = todayList.get(todayList.size() - 1).getDeathCnt();
         int todayTotalDefCnt = todayList.get(todayList.size() - 1).getDefCnt();
