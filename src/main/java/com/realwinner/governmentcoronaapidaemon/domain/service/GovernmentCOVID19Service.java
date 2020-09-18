@@ -23,7 +23,7 @@ public class GovernmentCOVID19Service {
         ArrayList<GovernmentCOVID19Model> list = coronaApiHttpCall.getCOVID19Data();
 
         while(flag) {
-            if (list == null) {
+            if (list == null || list.isEmpty()) {
                 log.info("Data is Null sleep 15 sec");
                 try {
                     Thread.sleep(1000 * 15);
